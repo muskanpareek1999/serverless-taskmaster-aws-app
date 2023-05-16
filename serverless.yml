@@ -1,5 +1,5 @@
 org: muskanpareek
-app: serverless-taskmaster-aws-app
+app: serverless-taskmaster-app
 service: serverless-taskmaster-app
 
 
@@ -10,7 +10,7 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - dynamodb: *
+        - dynamodb:*
       Resource:
         - arn:aws:dynamodb:us-east-1:619047314241:table/KaamKaro
 
@@ -19,12 +19,12 @@ resources:
   Resources:
     KaamKaro:
      Type: AWS::DynamoDB::Table
-     TableName: KaamKaro
-     BillingMode: PAY_PER_REQUEST
-     Properties:
+     Properties:  
+       TableName: KaamKaro
+       BillingMode: PAY_PER_REQUEST
        AttributeDefinitions:
-        - AttributeName: id
-          AttributeType: S
+         - AttributeName: id
+           AttributeType: S
        KeySchema:
-        - AttributeName: id
-           KeyType: HASH     
+          - AttributeName: id
+            KeyType: HASH     
